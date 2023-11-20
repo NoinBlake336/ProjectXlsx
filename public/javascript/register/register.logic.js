@@ -40,7 +40,7 @@ const verifyPass = (user,email,pass,vPass)=>{
 
 
 const registerData =(user,email,pass)=>{
-    fetch('/api/v1/users/register',{
+    fetch('https://project-xlsx-backend.vercel.app/api/v1/users/register',{
         method:'POST',
         headers:{
             'Content-Type':'application/json',
@@ -53,7 +53,7 @@ const registerData =(user,email,pass)=>{
     }).then(response=>{
         if(response.ok){
             console.log('Usuario creado');
-            window.location.href = 'http://localhost:3000/api/v1/login';
+            window.location.href = '/public/login/';
         }
     }).catch(err=>{
         throw new Error (`Error: ${err}`);
