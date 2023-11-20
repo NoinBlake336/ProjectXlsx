@@ -109,7 +109,7 @@ const redirectToDashBoard = async()=>{
         }
 
         if(response){
-            window.location.href = ('/public/dashboard');
+            window.location.href = ('/dashboard');
         }
         return
     }

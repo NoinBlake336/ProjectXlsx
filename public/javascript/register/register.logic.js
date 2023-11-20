@@ -53,7 +53,7 @@ const registerData =(user,email,pass)=>{
     }).then(response=>{
         if(response.ok){
             console.log('Usuario creado');
-            window.location.href = '/public/login/';
+            window.location.href = '/login/';
         }
     }).catch(err=>{
         throw new Error (`Error: ${err}`);
