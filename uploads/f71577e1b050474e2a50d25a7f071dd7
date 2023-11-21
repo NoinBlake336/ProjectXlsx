@@ -1,9 +1,0 @@
-DB_USER = 'u3hnmfk61yauz82g'
-DB_HOST = 'b1v3cepcxbpwmgtbgpyj-mysql.services.clever-cloud.com'
-DB_PASSWORD = 'WHJ7omy0W1fiD9ln81SY'
-DB_NAME = 'b1v3cepcxbpwmgtbgpyj'
-DB_PORT = 3306
-NODE_ENV = 'development'
-DB_URI = ''
-JWT_SECRET = 'my_page_duo_web'
-PORT=3000
