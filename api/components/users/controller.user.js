@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 const UserServices = require('./service');
 const service = new UserServices();
 
-class Controlleruser {
+class ControllerUser {
     async findOne(id){
         const find = await service.getOneUser(id);
         return {find};
@@ -14,10 +14,27 @@ class Controlleruser {
             email:email,
             password:password,
             date: new Date()
-        }
-    }
+        };
+
+        if(password){
+            const hash = await bcrypt.hash(password,10);
+            newUser.password = hash;
+        };
+
+        const addUser = await service.addUser(newUser);
+
+        return {addUser};
+    };
+
+
+    async update(id,change){
+        const update = await service.updateUser(id,change);
+        return {update};
+    };
+
+
 
 };
 
 
-module.exports = Controlleruser;
+module.exports = ControllerUser;
