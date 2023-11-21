@@ -6,7 +6,7 @@ const URI = 'mysql://u3hnmfk61yauz82g:WHJ7omy0W1fiD9ln81SY@b1v3cepcxbpwmgtbgpyj-
 module.exports = {
     development:{
         url:URI,
-        dialect:'mysql'
+        dialect:'mysql2'
     },
     production:{
         url:URI,
