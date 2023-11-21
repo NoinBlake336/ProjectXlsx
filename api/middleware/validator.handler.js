@@ -11,3 +11,5 @@ const validaterHandler = (schema,property)=>{
         next(error);
     }
 }
+
+module.exports = validaterHandler;
