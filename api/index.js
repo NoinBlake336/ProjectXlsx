@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const Router = require('./router');
 const bodyParser = require('body-parser');
 const {logErrors,errorHandler,boomErrorHandler} = require('./middleware/error.handler');
 const {config} = require('./config');
 const connectDB = require('./db/libs');
 const authenticateToken = require('./middleware/authenticate.token');
+const Router = require('./router');
 
 require('./utils/auth');
 
