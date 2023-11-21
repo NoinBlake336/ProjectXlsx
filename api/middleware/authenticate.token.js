@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const {config}  = require('../cofing');
+const {config}  = require('../config');
 const boom = require('@hapi/boom');
 
 const authenticateToken = (req,res,next)=>{
