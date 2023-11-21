@@ -15,6 +15,10 @@ app.use(logError);
 app.use(errorHandler);
 app.use(boomErrorHandler);
 
+app.get('/',()=>{
+    res.send('Hola binevenido a mi servidor')
+})
+
 app.listen(port,()=>{
     console.log(`http://localhost:${port}/api/v1/login`);
     console.log("Servidor de DuoWeb");
