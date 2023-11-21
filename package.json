@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "nodemon index.js"
+  },
   "dependencies": {
     "@hapi/boom": "^10.0.1",
     "bcrypt": "^5.1.1",

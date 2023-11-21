@@ -1,3 +1,5 @@
+
+
 const RouterApi = require('./router');
 const path = require('path');
 const {logError,errorHandler,boomErrorHandler} = require('./middleware/error.handler');
@@ -15,7 +17,7 @@ app.use(logError);
 app.use(errorHandler);
 app.use(boomErrorHandler);
 
-app.get('/',()=>{
+app.get('/',async(req,res,next)=>{
     res.send('Hola binevenido a mi servidor')
 })
 

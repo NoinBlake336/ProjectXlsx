@@ -1,7 +1,5 @@
 const boom = require('@hapi/boom');
-const {
-    models
-} = require('../libs/sequelize');
+const {models} = require('../libs/sequelize.js');
 const xlsx = require('xlsx');
 class ProductService {
     async getTotalPages(elementsPerPage) {

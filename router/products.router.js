@@ -9,10 +9,10 @@ const {
 } = require('../schema/product.schema');
 const ProductServices = require('../services/product.service');
 const service = new ProductServices();
-// const multer = require('multer');
-// const upload = multer({
-//     dest: 'uploads/'
-// });
+const multer = require('multer');
+const upload = multer({
+    dest: 'uploads/'
+});
 
 router.get('/',
     validatorhandler(querySchemaProducts,"query"),

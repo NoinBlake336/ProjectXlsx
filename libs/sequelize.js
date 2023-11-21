@@ -9,7 +9,7 @@ const sequelize = new Sequelize({
     host:config.dbHost,
     port:config.dbPort,
     dialect: 'mysql',
-    dialectModule:'mysql2',
+    // dialectModule:'mysql2',
 });
 
 
