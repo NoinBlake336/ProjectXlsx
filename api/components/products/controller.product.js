@@ -1,7 +1,6 @@
 const ProductServices = require('./service');
 const service = new ProductServices();
-
-
+const xlsx = require('xlsx');
 class ControllerProducts {
     async find(query){
         const totalPages = await service.getTotalPage(7);
@@ -28,6 +27,11 @@ class ControllerProducts {
         const product = await service.getOneProducts(id);
         return {product}
     }
+
+    async create(userId,file){
+        
+    }
+
 
 
 };

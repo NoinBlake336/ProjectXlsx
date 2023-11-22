@@ -1,4 +1,4 @@
-const { Schema,model, SchemaType } = require('mongoose');
+const { Schema,model } = require('mongoose');
 const { transformObject } = require('../../../middleware/transform.object');
 
 
@@ -16,12 +16,16 @@ const UserSchema = new Schema({
         type:String,
         required:true,
     },
+    products:[{
+        type:Schema.Types.ObjectId,
+        ref:'ProductModel',
+    }]
 });
 
 UserSchema.set('toJSON',{
     transform:transformObject.json,
 });
 
-const userModel = model('UserModel',userModel);
+const UserModel = model('UserModel',UserSchema);
 
-module.exports = userModel;
+module.exports = UserModel;

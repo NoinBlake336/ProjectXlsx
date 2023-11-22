@@ -3,6 +3,11 @@ const { transformObject } = require('../../../middleware/transform.object');
 
 
 const productSchema = new Schema({
+    userId:{
+        type:Schema.Types.ObjectId,
+        ref:'UserModel',
+        required:true,
+    },
     product:{
         type:String,
     },
