@@ -6,8 +6,6 @@ const {config} = require('../../config');
 const connectDB = async ()=>{
     try{
         const conn = await mongoose.connect(config.uriDB,{
-            useUnifiedTopology:true,
-            useNewUrlParser: true,
             dbName:'CasaPlus'
         });
         console.log('mongo database is connect!!');
