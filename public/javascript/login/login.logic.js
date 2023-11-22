@@ -29,7 +29,7 @@ window.addEventListener("click",(e)=>{
 });
 
 const validatorLogin = (email,password)=>{
-    return fetch('https://project-xlsx-backend.vercel.app/api/login',{
+    return fetch('https://project-xlsx-backend.vercel.app/api/auth',{
         method:'POST',
         headers:{
             'Content-Type':'application/json',
