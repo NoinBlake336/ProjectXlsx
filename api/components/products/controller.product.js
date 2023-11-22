@@ -1,6 +1,8 @@
 const ProductServices = require('./service');
 const service = new ProductServices();
 const xlsx = require('xlsx');
+const boom = require('@hapi/boom');
+
 class ControllerProducts {
     async find(query){
         const totalPages = await service.getTotalPage(7);
@@ -29,7 +31,32 @@ class ControllerProducts {
     }
 
     async create(userId,file){
-        
+        const workbook = xlsx.readFile(file.path);
+        const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+        const productsData = xlsx.utils.sheet_to_json(worksheet);
+
+        const createdProducts =[];
+
+        for(const productData of productsData){
+            try {
+                const createdProduct = await service.addProducts(userId,productData);
+                createdProducts.push(createdProduct);
+            } catch (error) {
+                boom.badRequest('Error',error);
+            }
+        }
+
+        return {createdProducts}
+    }
+
+    async update(id,changes){
+        const update = await service.updateProduct(id,changes);
+        return {update};
+    }
+
+    async delete(id){
+        const deleteP = await service.deleteProduct(id);
+        return { deleteP};
     }
 
 
