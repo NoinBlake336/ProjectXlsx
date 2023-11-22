@@ -120,7 +120,6 @@ const getData = async(page)=>{
         const response =await fetch(`${port}/api/products?page=${page}&limit=7`,{mode:'cors'});
         const data = await response.json();
         const isData = await data.produt.length === 0;
-        console.log(isData.produt);
         if(!isData){
             numberOfPages[0].innerHTML = `${data.page}`
             return renderProducts(data.product);
