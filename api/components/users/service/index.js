@@ -17,6 +17,11 @@ class userServices {
         return user;
     };
 
+    async getEmailuser(email){
+        const user = await Model.find({email:email});
+        return user[0];
+    }
+
     async updateUser(id,change){
         const updateuser = await Model.findOneAndUpdate(
             {_id:id},
