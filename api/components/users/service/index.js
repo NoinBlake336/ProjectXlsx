@@ -10,7 +10,7 @@ class userServices {
     };
 
     async getAll(){
-        const users = await Model.findAll();
+        const users = await Model.find();
         return users;
     }
 
