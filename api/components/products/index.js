@@ -16,7 +16,7 @@ router.get('/',
             console.log(req.query)
             res.status(200).json(product);
         } catch (error) {
-            next(err);
+            next(error);
         }
     }
 );
