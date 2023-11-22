@@ -5,10 +5,10 @@ const validatorHandler = require('../../middleware/validator.handler');
 const  {getSchemaProduct,createSchemaProducts,updateSchemaProducts,querySchemaProducts} = require('./schema');
 const ControllerProducts = require('./controller.product');
 const controller = new ControllerProducts;
-const multer = require('multer');
-const upload = multer({
-    dest:'upload/',
-});
+// const multer = require('multer');
+// const upload = multer({
+//     dest:'upload/',
+// });
 
 
 router.get('/',
@@ -25,7 +25,7 @@ router.get('/',
 );
 
 router.post('/create',
-    upload.single('file'),
+    // upload.single('file'),
     validatorHandler(createSchemaProducts,'body'),
     async(req,res,next)=>{
         try {
