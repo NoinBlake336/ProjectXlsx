@@ -28,3 +28,6 @@ const LocalStrategy = new Strategy(
         }
     }
 )
+
+
+module.exports = LocalStrategy;
