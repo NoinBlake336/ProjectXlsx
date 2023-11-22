@@ -24,7 +24,7 @@ class ProductServices {
     };
 
     async getProducts(options){
-        const products = await Model.findAll({},null,options);
+        const products = await Model.find({},null,options);
         return products;
     };
 
