@@ -26,6 +26,6 @@ UserSchema.set('toJSON',{
     transform:transformObject.json,
 });
 
-const UserModel = model('UserModel',UserSchema);
+const userModel = model('UserModel',userModel);
 
 module.exports = UserModel;
