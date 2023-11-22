@@ -60,7 +60,8 @@ const sendFile = (file, iuud) => {
     
     fetch(`${port}/api/products/create`, {
         method: 'POST',
-        body: formData
+        body: formData,
+        mode:'cors',
     }).then(response => {
         if (response.ok) {
             loaderSendFile.classList.add('hidden')
@@ -116,7 +117,7 @@ const renderProducts = (products)=>{
 
 const getData = async(page)=>{
     try{
-        const response =await fetch(`${port}/api/products?page=${page}&limit=7`);
+        const response =await fetch(`${port}/api/products?page=${page}&limit=7`,{mode:'cors'});
         const data = await response.json();
         const isData = data.product.length ==0;
         if(!isData){
@@ -142,7 +143,8 @@ const getData = async(page)=>{
 
 const DeleteElementeByID = (id)=>{
     fetch(`${port}/api/products/delete/${id}`,{
-        method:'DELETE'
+        method:'DELETE',
+        mode:'cors',
     }).then(response=>{
         if(response.ok){
             if(Frame123.classList.contains('animation')){
@@ -250,7 +252,7 @@ window.addEventListener("click",(e)=>{
 
                         },500);
                     }
-                    throw new Error ("No se úede actualozar, ya que no hay datos ingresados");
+                    throw new Error ("No se puede actualizar, ya que no hay datos ingresados");
                 }
 
                 if(loaderUpdateCard[0].classList.contains('hidden')){
@@ -261,6 +263,7 @@ window.addEventListener("click",(e)=>{
                 setTimeout(()=>{
                     fetch(`${port}/api/products/update/${id}`,{
                         method:'PATCH',
+                        mode:'cors',
                         headers:{
                             'Content-Type':'application/json',
                         },
