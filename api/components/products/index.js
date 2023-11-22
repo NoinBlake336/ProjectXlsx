@@ -2,7 +2,7 @@ const express = require('express');
 const boom = require('@hapi/boom')
 const router = express.Router();
 const validatorHandler = require('../../middleware/validator.handler');
-const  {getSchemaProduct,createSchemaProducts,updateSchemaProducts} = require('./schema');
+const  {getSchemaProduct,createSchemaProducts,updateSchemaProducts,querySchemaProducts} = require('./schema');
 const ControllerProducts = require('./controller.product');
 const controller = new ControllerProducts;
 const multer = require('multer');
@@ -12,11 +12,11 @@ const upload = multer({
 
 
 router.get('/',
-    validatorHandler(getSchemaProduct,'query'),
+    validatorHandler(querySchemaProducts,'query'),
     async(req,res,next)=>{
         try {
             const product = await controller.find(req.query);
-            res.status(201).json(product);
+            res.status(200).json(product);
         } catch (error) {
             next(err);
         }

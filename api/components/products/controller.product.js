@@ -11,7 +11,6 @@ class ControllerProducts {
             page,
             limit
         } = query;
-
         if(page && limit) {
             options.limit = parseInt(limit);
             options.skip = (parseInt(page)-1) * parseInt(limit);
