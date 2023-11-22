@@ -29,7 +29,7 @@ window.addEventListener("click",(e)=>{
 });
 
 const validatorLogin = (email,password)=>{
-    return fetch('https://project-xlsx-backend.vercel.app/api/v1/login',{
+    return fetch('https://project-xlsx-backend.vercel.app/api/login',{
         method:'POST',
         headers:{
             'Content-Type':'application/json',
@@ -95,7 +95,7 @@ const getTokenFromCookie = ()=>{
 const redirectToDashBoard = async()=>{
     const token = getTokenFromCookie();
     if(token){
-        const response = await fetch(`https://project-xlsx-backend.vercel.app/api/v1/dashboard `,{
+        const response = await fetch(`https://project-xlsx-backend.vercel.app/api/dashboard `,{
             method:'GET',
             mode:'cors',
             headers:{

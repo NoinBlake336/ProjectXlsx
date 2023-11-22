@@ -40,7 +40,7 @@ const verifyPass = (user,email,pass,vPass)=>{
 
 
 const registerData =(user,email,pass)=>{
-    fetch('https://project-xlsx-backend.vercel.app/api/v1/users/register',{
+    fetch('https://project-xlsx-backend.vercel.app/api/users/register',{
         method:'POST',
         mode:'cors',
         headers:{

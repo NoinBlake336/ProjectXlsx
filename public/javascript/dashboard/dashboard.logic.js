@@ -58,7 +58,7 @@ const sendFile = (file, iuud) => {
     formData.append('file', file);
     formData.append('userId', iuud);
     
-    fetch(`${port}/api/v1/products/create`, {
+    fetch(`${port}/api/products/create`, {
         method: 'POST',
         body: formData
     }).then(response => {
@@ -116,7 +116,7 @@ const renderProducts = (products)=>{
 
 const getData = async(page)=>{
     try{
-        const response =await fetch(`${port}/api/v1/products?page=${page}&limit=7`);
+        const response =await fetch(`${port}/api/products?page=${page}&limit=7`);
         const data = await response.json();
         const isData = data.product.length ==0;
         if(!isData){
@@ -141,7 +141,7 @@ const getData = async(page)=>{
 }
 
 const DeleteElementeByID = (id)=>{
-    fetch(`${port}/api/v1/products/delete/${id}`,{
+    fetch(`${port}/api/products/delete/${id}`,{
         method:'DELETE'
     }).then(response=>{
         if(response.ok){
@@ -259,7 +259,7 @@ window.addEventListener("click",(e)=>{
                 }
                 
                 setTimeout(()=>{
-                    fetch(`${port}/api/v1/products/update/${id}`,{
+                    fetch(`${port}/api/products/update/${id}`,{
                         method:'PATCH',
                         headers:{
                             'Content-Type':'application/json',
