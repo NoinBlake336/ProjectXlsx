@@ -9,6 +9,11 @@ class userServices {
         return myUser;
     };
 
+    async getAll(){
+        const users = await Model.findAll();
+        return users;
+    }
+
     async getOneUser(id){
         const user = await Model.findById(id);
         if(!user){

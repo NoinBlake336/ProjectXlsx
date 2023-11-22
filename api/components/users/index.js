@@ -7,6 +7,17 @@ const ControllerUser = require('./controller.user');
 const validaterHandler = require('../../middleware/validator.handler');
 const controller = new ControllerUser;
 
+router.get('/',
+    async(req,res,next)=>{
+        try {
+            const user = await controller.find();
+            res.status(200).json(user);
+        } catch (error) {
+            next(error)
+        }
+    }
+);
+
 router.get('/:id',
     validatorhandler(getUserSchema,'params'),
     async (req,res,next)=>{

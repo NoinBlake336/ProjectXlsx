@@ -3,6 +3,10 @@ const UserServices = require('./service');
 const service = new UserServices();
 
 class ControllerUser {
+    async find(){
+        const users = await service.getAll();
+        return {users}
+    }
     async findOne(id){
         const find = await service.getOneUser(id);
         return {find};
