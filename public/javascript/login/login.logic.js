@@ -95,23 +95,8 @@ const getTokenFromCookie = ()=>{
 const redirectToDashBoard = async()=>{
     const token = getTokenFromCookie();
     if(token){
-        const response = await fetch(`https://project-xlsx-backend.vercel.app/api/dashboard `,{
-            method:'GET',
-            mode:'cors',
-            headers:{
-                'Content-Type':'Application/json',
-                'token':token
-            },
-        });
-        if(!response.ok){
-            console.log('hola',token)
-            return
-        }
-
-        if(response){
-            window.location.href = ('/dashboard');
-        }
-        return
+        
+        window.location.href = ('/dashboard');
     }
 }
 
