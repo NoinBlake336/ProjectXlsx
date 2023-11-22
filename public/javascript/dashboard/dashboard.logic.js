@@ -123,7 +123,6 @@ const getData = async(page)=>{
         console.log(isData);
         if(!isData){
             numberOfPages[0].innerHTML = `${data.page}`
-            console.log(await data)
             return renderProducts(data.product);
         }
         return containerCard.innerHTML = `
