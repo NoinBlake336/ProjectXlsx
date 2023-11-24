@@ -7,7 +7,7 @@ const ControllerProducts = require('./controller.product');
 const controller = new ControllerProducts;
 const multer = require('multer');
 const upload = multer({
-    dest:'uploads/'
+    dest:'/tmp/'
 })
 
 
