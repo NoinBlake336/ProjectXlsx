@@ -2,17 +2,21 @@ const boom = require('@hapi/boom');
 const Model = require('../model');
 
 class ProductServices {
-    async addProducts(userId,productData){
-        console.log(productData);
-        const newProduct = new Model({
-            userId: userId,
-            product: productData.product,
-            price: productData.price,
-            date: new Date(),
-        });
+    async addProducts(userId,productData){ 
+        const newProducts = await Model({
+            userId:
+        }) 
 
-        await newProduct.save();
-        return newProduct;
+
+        newProduct.save()
+        .then(savedProduct => {
+            console.log('Producto guardado:', savedProduct);
+        })
+        .catch(error => {
+            console.error('Error al guardar el producto:', error);
+        });
+        console.log(userId);
+        console.log(productData)
     }
 
     async getTotalPage(elementsPerPage){

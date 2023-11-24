@@ -36,11 +36,9 @@ class ControllerProducts {
         const createdProducts = [];
     
         try {
-            for (const productData of productsData) {
-                
-                const createdProduct = await service.addProducts(userId, productData);
-                createdProducts.push(productData);
-            }
+            productsData.forEach(async(items)=>{
+                const newProducts = await service.addProducts(userId,items);
+            })
             return { createdProducts };
         } catch (error) {
             throw boom.badRequest('Error creating products', error);
