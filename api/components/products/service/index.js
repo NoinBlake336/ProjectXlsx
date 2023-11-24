@@ -8,7 +8,7 @@ class ProductServices {
             userId: userId,
             product: productData.product,
             price: productData.price,
-            date: new Date()
+            date: new Date(),
         });
 
         await newProduct.save();
