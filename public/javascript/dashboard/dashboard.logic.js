@@ -74,7 +74,7 @@ const sendFile = (file, iuud) => {
             },700);
         };
 
-        window.location.reload()
+        // window.location.reload()
     }).catch(err => {
         return 'hola'
     })
