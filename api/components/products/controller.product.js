@@ -33,20 +33,23 @@ class ControllerProducts {
         const workbook = xlsx.readFile(file.path);
         const worksheet = workbook.Sheets[workbook.SheetNames[0]];
         const productsData = xlsx.utils.sheet_to_json(worksheet);
-
         const createdProducts = [];
-
-        for (const productData of productsData) {
-            try {
+    
+        try {
+            for (const productData of productsData) {
+                
                 const createdProduct = await service.addProducts(userId, productData);
-                createdProducts.push(createdProduct);
-            } catch (error) {
-                throw boom.badRequest('Error', error);
+                createdProducts.push(productData);
+                console.log(createdProduct)
             }
+            console.log('Productos creados:', createdProducts);
+            return { createdProducts };
+        } catch (error) {
+            throw boom.badRequest('Error creating products', error);
         }
-
-        return { createdProducts };
     }
+    
+    
 
     async update(id,changes){
         const update = await service.updateProduct(id,changes);

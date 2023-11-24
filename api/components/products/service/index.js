@@ -3,14 +3,16 @@ const Model = require('../model');
 
 class ProductServices {
     async addProducts(userId,productData){
+        console.log(productData);
         const newProduct = new Model({
-            ...productData,
             userId: userId,
+            product: productData.product,
+            price: productData.price,
+            date: new Date()
         });
 
         await newProduct.save();
         return newProduct;
-        
     }
 
     async getTotalPage(elementsPerPage){

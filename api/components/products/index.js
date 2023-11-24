@@ -5,7 +5,10 @@ const validatorHandler = require('../../middleware/validator.handler');
 const  {getSchemaProduct,createSchemaProducts,updateSchemaProducts,querySchemaProducts} = require('./schema');
 const ControllerProducts = require('./controller.product');
 const controller = new ControllerProducts;
-
+const multer = require('multer');
+const upload = multer({
+    dest:'uploads/'
+})
 
 
 router.get('/',
@@ -13,7 +16,6 @@ router.get('/',
     async(req,res,next)=>{
         try {
             const product = await controller.find(req.query);
-            console.log(req.query)
             res.status(200).json(product);
         } catch (error) {
             next(error);
@@ -22,12 +24,14 @@ router.get('/',
 );
 
 router.post('/create',
+    upload.single('file'),
     validatorHandler(createSchemaProducts, 'body'),
     async (req, res, next) => {
         try {
             const body = req.body;
             const { userId } = body;
             const file = req.file;
+            console.log(file)
             if (!file) {
                 return next(boom.badRequest('File is required'));
             }
