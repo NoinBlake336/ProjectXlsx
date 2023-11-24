@@ -40,9 +40,7 @@ class ControllerProducts {
                 
                 const createdProduct = await service.addProducts(userId, productData);
                 createdProducts.push(productData);
-                console.log(createdProduct)
             }
-            console.log('Productos creados:', createdProducts);
             return { createdProducts };
         } catch (error) {
             throw boom.badRequest('Error creating products', error);
