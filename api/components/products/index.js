@@ -22,17 +22,17 @@ router.get('/',
 );
 
 router.post('/create',
-    validatorHandler(createSchemaProducts,'body'),
-    async(req,res,next)=>{
+    validatorHandler(createSchemaProducts, 'body'),
+    async (req, res, next) => {
         try {
             const body = req.body;
-            const {userId} = body;
+            const { userId } = body;
             const file = req.file;
-            if(!file){
-                boom.badRequest('File is requerid');
-            };
+            if (!file) {
+                return next(boom.badRequest('File is required'));
+            }
 
-            const newProducts = await controller.create(userId,file);
+            const newProducts = await controller.create(userId, file);
             res.status(201).json(newProducts);
         } catch (error) {
             next(error);
