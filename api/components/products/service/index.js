@@ -4,6 +4,7 @@ const { ObjectId } = require('mongoose').Types;
 
 class ProductServices {
     async addProducts(userId,productData){ 
+        console.log(userId)
         const newProduct = await Model({
             userId:new ObjectId(userId),
             product:productData.product,
