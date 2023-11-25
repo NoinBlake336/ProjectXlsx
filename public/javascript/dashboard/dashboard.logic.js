@@ -198,7 +198,8 @@ window.addEventListener("change", (e) => {
     const file = e.srcElement.files[0];
     if (localstorage) {
         const iuud = localstorage;
-        loaderSendFile.classList.remove('hidden')
+        loaderSendFile.classList.remove('hidden');
+        console.log(iuud.user)
         return sendFile(file, iuud);
     }
 },false)

@@ -52,7 +52,7 @@ const validatorLogin = (email,password)=>{
         if(token){
 
             setTokenInCookie(token);
-            setUserinLocalStorage(user); 
+            setUserinLocalStorage(data); 
             messageError[1].innerHTML='Acccount valide';
             messageError[0].classList.add('hidden');
             messageError[1].classList.remove('hidden');

@@ -20,7 +20,7 @@ class ProductServices {
             const savedProduct = await newProduct.save();
             console.log('Producto guardado:', savedProduct);
         } catch (error) {
-            console.error('Error al guardar el producto:', error);
+            console.error('Error al guardar el producto:');
         }
         console.log(userId);
         console.log(productData);
