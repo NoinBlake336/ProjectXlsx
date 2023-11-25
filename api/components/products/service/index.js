@@ -3,25 +3,27 @@ const Model = require('../model');
 const { ObjectId } = require('mongoose').Types;
 
 class ProductServices {
-    async addProducts(userId,productData){ 
-        console.log(userId)
-        const newProduct = await Model({
-            userId:new ObjectId(userId),
-            product:productData.product,
-            price:productData.price,
-            date: new Date(),
-        }) 
-
-
-        newProduct.save()
-        .then(savedProduct => {
+    async addProducts(userId, productData){
+        try {
+            // Validar que userId sea un string válido y de longitud 24
+            if (!ObjectId.isValid(userId)) {
+                throw new Error('userId no es válido');
+            }
+    
+            const newProduct = new Model({
+                userId: new ObjectId(userId),  // Utilizar new ObjectId para convertir a ObjectId
+                product: productData.product,
+                price: productData.price,
+                date: new Date(),
+            });
+    
+            const savedProduct = await newProduct.save();
             console.log('Producto guardado:', savedProduct);
-        })
-        .catch(error => {
+        } catch (error) {
             console.error('Error al guardar el producto:', error);
-        });
+        }
         console.log(userId);
-        console.log(productData)
+        console.log(productData);
     }
 
     async getTotalPage(elementsPerPage){
