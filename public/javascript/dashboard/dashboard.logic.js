@@ -55,13 +55,10 @@ if(pageLocalstorage){
 
 const sendFile = (file, iuud) => {
     console.log(iuud);
-    const formData = new FormData();
-    formData.append('file', file);
-    formData.append('userId', iuud);
     
     fetch(`${port}/api/products/create`, {
         method: 'POST',
-        body: formData,
+        body: JSON.stringify(formData),
         mode:'cors',
     }).then(response => {
         if (response.ok) {
