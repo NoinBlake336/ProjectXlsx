@@ -6,7 +6,7 @@ const inputProductUpdate = document.getElementById('product_update');
 const inputPriceUpdate = document.getElementById('price_update'); 
 const loaderSendFile = document.getElementById('clock-loader');
 const containerUpdateProducts = document.getElementById('dashboard-update_products');
-const localstorage = localStorage.getItem('user');
+const storageData = localStorage.getItem('user');
 const pageLocalstorage = localStorage.getItem("page");
 const page = document.getElementsByClassName('input-page_products');
 const containerCard = document.getElementById('frame_85');
@@ -54,7 +54,7 @@ if(pageLocalstorage){
 }
 
 const sendFile = (file, iuud) => {
-    console.log(iuud["user"]);
+    console.log(iuud)
     const formData = new FormData();
     formData.append('file', file);
     formData.append('userId', iuud);
@@ -196,10 +196,10 @@ window.addEventListener("change", (e) => {
         return;
     };
     const file = e.srcElement.files[0];
-    if (localstorage) {
-        const iuud = localstorage;
+    if (storageData) {
+        const {user} = storageData;
         loaderSendFile.classList.remove('hidden');
-        return sendFile(file, iuud);
+        return sendFile(file, user);
     }
 },false)
 
