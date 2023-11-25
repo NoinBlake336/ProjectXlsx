@@ -197,10 +197,9 @@ window.addEventListener("change", (e) => {
     };
     const file = e.srcElement.files[0];
     if (storageData) {
-        const {user} = storageData;
-        console.log(storageData, 'holaaa')
+        const object = JSON.parse(storageData)
         loaderSendFile.classList.remove('hidden');
-        return sendFile(file, user);
+        return sendFile(file, object);
     }
 },false)
 
