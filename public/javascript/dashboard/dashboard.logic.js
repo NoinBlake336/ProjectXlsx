@@ -133,6 +133,7 @@ const getData = async(page)=>{
         </div>
         </div>`;
     }catch(err){
+        console.log(err)
         return containerCard.innerHTML = `
         <div id="frame_76">
         <div id="id_data" class="table_data">
