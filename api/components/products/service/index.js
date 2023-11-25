@@ -11,7 +11,7 @@ class ProductServices {
             }
     
             const newProduct = new Model({
-                userId: new ObjectId(userId),  // Utilizar new ObjectId para convertir a ObjectId
+                userId: userId,  // Utilizar new ObjectId para convertir a ObjectId
                 product: productData.product,
                 price: productData.price,
                 date: new Date(),
