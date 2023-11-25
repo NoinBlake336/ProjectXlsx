@@ -57,7 +57,7 @@ const sendFile = (file, iuud) => {
     console.log(iuud)
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('userId', iuud);
+    formData.append('userId', iuud.user);
     
     fetch(`${port}/api/products/create`, {
         method: 'POST',
