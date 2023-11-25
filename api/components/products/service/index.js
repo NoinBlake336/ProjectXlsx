@@ -5,8 +5,8 @@ class ProductServices {
     async addProducts(userId,productData){ 
         const newProduct = await Model({
             userId:userId,
-            product:productData.prproductData.product,
-            price:productData.productData.price,
+            product:productData.product,
+            price:productData.price,
             date: new Date(),
         }) 
 
