@@ -5,11 +5,6 @@ const { ObjectId } = require('mongoose').Types;
 class ProductServices {
     async addProducts(userId, productData){
         try {
-            // Validar que userId sea un string válido y de longitud 24
-            if (!ObjectId.isValid(userId)) {
-                throw new Error('userId no es válido');
-            }
-    
             const newProduct = new Model({
                 userId: userId,  // Utilizar new ObjectId para convertir a ObjectId
                 product: productData.product,
