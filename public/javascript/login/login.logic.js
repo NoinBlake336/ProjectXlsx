@@ -4,7 +4,7 @@ const inputPass = document.getElementById('pass');
 const messageError = document.querySelectorAll('#message-error');
 
 const setUserinLocalStorage = (user)=>{
-    localStorage.setItem('user',JSON.stringify(user));
+    localStorage.setItem('date',JSON.stringify(user));
 }
 
 const MessageError = (err)=>{

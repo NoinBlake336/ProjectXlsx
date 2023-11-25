@@ -6,7 +6,7 @@ const inputProductUpdate = document.getElementById('product_update');
 const inputPriceUpdate = document.getElementById('price_update'); 
 const loaderSendFile = document.getElementById('clock-loader');
 const containerUpdateProducts = document.getElementById('dashboard-update_products');
-const storageData = localStorage.getItem('user');
+const storageData = localStorage.getItem('date');
 const pageLocalstorage = localStorage.getItem("page");
 const page = document.getElementsByClassName('input-page_products');
 const containerCard = document.getElementById('frame_85');
@@ -199,7 +199,7 @@ window.addEventListener("change", (e) => {
     if (storageData) {
         const {user} = storageData;
         loaderSendFile.classList.remove('hidden');
-        return sendFile(file, storageData);
+        return sendFile(file, user);
     }
 },false)
 
