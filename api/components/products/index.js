@@ -31,7 +31,7 @@ router.post('/create',
             const body = req.body;
             const { userId } = body;
             const file = req.file;
-            console.log(file);
+
             if (!file) {
                 return next(boom.badRequest('File is required'));
             }

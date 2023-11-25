@@ -54,7 +54,7 @@ if(pageLocalstorage){
 }
 
 const sendFile = (file, iuud) => {
-    console.log(iuud);
+    
     
     fetch(`${port}/api/products/create`, {
         method: 'POST',

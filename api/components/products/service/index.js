@@ -22,7 +22,7 @@ class ProductServices {
         } catch (error) {
             console.error('Error al guardar el producto:');
         }
-        console.log(userId);
+        console.log(userId, "Backend");
         console.log(productData);
     }
 
