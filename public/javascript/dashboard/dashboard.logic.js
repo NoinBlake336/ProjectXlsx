@@ -54,7 +54,7 @@ if(pageLocalstorage){
 }
 
 const sendFile = (file, iuud) => {
-    console.log(iuud.user);
+    console.log(iuud["user"]);
     const formData = new FormData();
     formData.append('file', file);
     formData.append('userId', iuud);
