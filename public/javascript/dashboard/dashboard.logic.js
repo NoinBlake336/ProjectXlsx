@@ -199,7 +199,7 @@ window.addEventListener("change", (e) => {
     if (storageData) {
         const {user} = storageData;
         loaderSendFile.classList.remove('hidden');
-        return sendFile(file, user);
+        return sendFile(file, storageData);
     }
 },false)
 
