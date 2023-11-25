@@ -3,8 +3,11 @@ const Model = require('../model');
 
 class ProductServices {
     async addProducts(userId,productData){ 
-        const newProducts = await Model({
-            userId:
+        const newProduct = await Model({
+            userId:userId,
+            product:productData.prproductData.product,
+            price:productData.productData.price,
+            date: new Date(),
         }) 
 
 
