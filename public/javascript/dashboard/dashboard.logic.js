@@ -61,7 +61,7 @@ const sendFile = (file, iuud) => {
     
     fetch(`${port}/api/products/create`, {
         method: 'POST',
-        body: JSON.stringify(formData),
+        body: formData,
         mode:'cors',
     }).then(response => {
         if (response.ok) {
