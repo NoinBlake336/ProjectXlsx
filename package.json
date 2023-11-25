@@ -1,6 +1,9 @@
 {
   "scripts": {
-    "start": "nodemon api/index.js"
+    "start": "nodemon api/index.js",
+    "git": "git add . && git commit -m",
+    "gitPush": "git push",
+    "gitCode": "npm run git && npm run gitPush"
   },
   "dependencies": {
     "@hapi/boom": "^10.0.1",
