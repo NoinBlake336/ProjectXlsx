@@ -30,20 +30,28 @@ class ControllerProducts {
     }
 
     async create(userId, file) {
-        const workbook = xlsx.readFile(file.path);
-        const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-        const productsData = xlsx.utils.sheet_to_json(worksheet);
-        const createdProducts = [];
-    
         try {
-            productsData.forEach(async(items)=>{
-                const newProducts = await service.addProducts(userId,items);
-            })
+            if (!userId) {
+                throw new Error('UserId is required');
+            }
+    
+            const workbook = xlsx.readFile(file.path);
+            const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+            const productsData = xlsx.utils.sheet_to_json(worksheet);
+    
+            const createdProducts = await Promise.all(
+                productsData.map(async (item) => {
+                    const newProduct = await service.addProducts(userId, item);
+                    return newProduct;
+                })
+            );
+    
             return { createdProducts };
         } catch (error) {
             throw boom.badRequest('Error creating products', error);
         }
     }
+    
     
     
 
