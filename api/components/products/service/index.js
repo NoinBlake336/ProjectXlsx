@@ -1,10 +1,11 @@
 const boom = require('@hapi/boom');
 const Model = require('../model');
-
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 class ProductServices {
     async addProducts(userId,productData){ 
         const newProduct = await Model({
-            userId:userId,
+            userId:ObjectId(userId),
             product:productData.product,
             price:productData.price,
             date: new Date(),
