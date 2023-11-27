@@ -221,7 +221,7 @@ window.addEventListener("click",(e)=>{
         if(isHidden){
             loaderDelete.className = ""
         }
-        return DeleteElementeByID(parseInt(uuidProducts));
+        return DeleteElementeByID(uuidProducts);
     }
 
     if(updateProducts.id === "edit"){
