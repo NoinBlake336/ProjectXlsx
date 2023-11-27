@@ -112,7 +112,7 @@ const writeHTML = (item)=>{
 
 
 const renderProducts = (products)=>{
-
+    console.log(products);
     containerCard.innerHTML = products.map(product=>writeHTML(product))
 }
 
@@ -124,7 +124,7 @@ const getData = async(page)=>{
         const isData = await data.produt.length === 0;
         if(!isData){
             numberOfPages[0].innerHTML = `${data.page}`
-            return renderProducts(data.product);
+            return renderProducts(data.produt);
         }
         return containerCard.innerHTML = `
         <div id="frame_76">
