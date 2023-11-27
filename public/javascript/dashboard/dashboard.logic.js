@@ -215,6 +215,7 @@ window.addEventListener("click",(e)=>{
     if(deleteProducts.id === "delete"){
         Frame123.classList.add('animation');
         const uuidProducts = e.target.parentElement.parentElement.children[0].children[0].innerHTML;
+        console.log(uuidProducts)
         const loaderDelete = deleteProducts.parentElement.parentElement.children[2].children[0].children[1];
         const isHidden = loaderDelete.className === "hidden";
         if(isHidden){
