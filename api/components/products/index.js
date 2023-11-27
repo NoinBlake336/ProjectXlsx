@@ -60,4 +60,17 @@ router.patch('/update/:id',
     }
 );
 
+router.delete('/delete/:id',
+    validatorHandler(getSchemaProduct,'params'),
+    async (req,res,next)=>{
+        try {
+            const {id} = req.params;
+            const deleteProducts = await controller.delete(id);
+            res.status(201).json(deleteProducts);
+        } catch (error) {
+            next(error);
+        }
+    }
+);
+
 module.exports = router;
