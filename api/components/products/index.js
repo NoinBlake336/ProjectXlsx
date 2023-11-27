@@ -44,4 +44,20 @@ router.post('/create',
     }
 );
 
+router.patch('/update/:id',
+    validatorHandler(getSchemaProduct,'params'),
+    validatorHandler(updateSchemaProducts,'body'),
+    async (req,res,next)=>{
+        try {
+            const {id} = req.params;
+            const changes =  req.body;
+            const updateProduct = await controller.update(id,changes);
+            res.status(201).json(updateProduct);
+
+        } catch (error) {
+            next(error);
+        }
+    }
+);
+
 module.exports = router;
